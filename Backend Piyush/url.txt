@@ -1,0 +1,108 @@
+// https://ankushsingh.netlify.app/
+//this above is the url that consists of protocol: right now its https
+//protocol is basically how are we communicating with the browser. right now
+//its https that is hyper text transfer protocal
+
+//next is the domain ie ankushsingh.netlify.app this is nothing but the name of the ip address of the server
+//in order to make it human friendly we assign it a name and then point it to the ip address
+
+//
+// / this slash means the path. the path is the part of the url that is after the domain. its deault set to the home page.
+
+// https://ankushsingh.netlify.app/about there can be other paths as well. here the path is about
+// https://ankushsingh.netlify.app/contact/phone-number this is an example of nested path
+
+//query params
+//https://ankushsingh.netlify.app/contact?name=ankush&phone=1234567890 this is an example of query params
+//here as we see after the path we have two query params ie name which is assigned as ankush and phone which is assigned as 1234567890
+//the query parameters start with ? and are separated by &
+
+
+
+HTTP METHODS
+
+### **1. GET**
+
+* **Purpose:** Retrieve data from the server.
+* **Body:** ❌ Not allowed (only query params/headers).
+* **Safe & Idempotent:** ✅ (doesn’t change server state).
+* **Example:**
+
+  ```
+  GET /users?id=1
+  ```
+
+  → Fetch user with id = 1
+
+---
+
+### **2. POST**
+
+* **Purpose:** Create new data on the server.
+* **Body:** ✅ Allowed (usually JSON/form data).
+* **Safe & Idempotent:** ❌ (creates a new resource each time).
+* **Example:**
+
+  ```
+  POST /users
+  Body: { "name": "Ankush", "age": 22 }
+  ```
+
+  → Creates a new user
+
+---
+
+### **3. PUT**
+we can put things like images or videos in the server with this http request
+* **Purpose:** Update/replace an existing resource (full update).
+* **Body:** ✅ Must include the **entire object** to replace.
+* **Idempotent:** ✅ (sending the same request multiple times gives the same result).
+* **Example:**
+
+  ```
+  PUT /users/1
+  Body: { "name": "Ankush", "age": 23 }
+  ```
+
+  → Replaces user `1` with new data
+
+---
+
+### **4. PATCH**
+
+* **Purpose:** Update **part of** a resource (partial update).
+* **Body:** ✅ Contains only fields to update.
+* **Idempotent:** ✅ (if applied with the same patch).
+* **Example:**
+
+  ```
+  PATCH /users/1
+  Body: { "age": 24 }
+  ```
+
+  → Updates only the `age` field of user `1`
+
+---
+
+### **5. DELETE**
+
+* **Purpose:** Remove a resource from the server.
+* **Body:** ❌ Rarely used (usually not required).
+* **Idempotent:** ✅ (deleting the same resource again has no effect).
+* **Example:**
+
+  ```
+  DELETE /users/1
+  ```
+
+  → Deletes user with id = 1
+
+---
+
+🔑 **Quick Memory Hook:**
+
+* **GET** → Grab
+* **POST** → Create
+* **PUT** → Replace
+* **PATCH** → Modify
+* **DELETE** → Remove
