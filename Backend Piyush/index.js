@@ -25,7 +25,7 @@ app.listen(8000, () => {
 
 // function myHandler(req,res){
 
-//     //req.headers gives the info about the requestie the client making the request
+//     //req.headers gives the info about the request ie the client making the request
     
 //     //with the help of this code we are creatung a log file that will store the data
 //     //of all users who enter the server
